@@ -45,6 +45,9 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  # disable xterm
+  services.xserver.excludePackages = [ pkgs.xterm ];
+
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
@@ -55,8 +58,8 @@
     xkbVariant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # Uncomment the below line to enable CUPS to print documents.
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -77,6 +80,19 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  
+  # fish settings
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      nixedit = "sudo vim /etc/nixos/configuration.nix";
+      nixbuild = "sudo nixos-rebuild switch";
+      nixupdate = "nix-channel --update && sudo nixos-rebuild switch --upgrade";
+      ll = "exa --color=always -al --icons";
+    };
+  };
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = with pkgs; [ fish ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.vageesh = {
@@ -97,26 +113,27 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    pkgs.gnome.gnome-tweaks
-    pkgs.google-chrome
-    pkgs.gnomeExtensions.dash-to-dock
-    pkgs.vscode
-    pkgs.htop
-    pkgs.vlc
-    pkgs.neofetch
-    pkgs.obsidian
-    pkgs.scrcpy
-    pkgs.gtk4
-    pkgs.fish
-    pkgs.starship
-    pkgs.spotify
-    pkgs.gnome.adwaita-icon-theme
-    pkgs.gnomeExtensions.appindicator
-    pkgs.nixpkgs-fmt
-    pkgs.libreoffice-still
-    pkgs.gnome.gnome-terminal
-    pkgs.gnomeExtensions.custom-accent-colors
-    pkgs.git
+    gnome.gnome-tweaks
+    google-chrome
+    gnomeExtensions.dash-to-dock
+    vscode
+    htop
+    vlc
+    neofetch
+    obsidian
+    scrcpy
+    fish
+    starship
+    spotify
+    gnomeExtensions.appindicator
+    nixpkgs-fmt
+    libreoffice-still
+    gnome.gnome-terminal
+    gnomeExtensions.custom-accent-colors
+    git
+    adw-gtk3
+    exa
+    bat
   ];
 
   environment.gnome.excludePackages = with pkgs.gnome; [
