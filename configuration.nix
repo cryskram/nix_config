@@ -27,16 +27,6 @@
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
-  # setting fish as default shell
-  users.defaultUserShell = pkgs.fish;
-  programs.fish.enable = true;
-  
-  # setting fish shell only for a particular user
-  # users.users.vageesh.shell = pkgs.fish;
-
-  # adding shell to the environment
-  environment.shells = with pkgs; [ fish ];
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -94,8 +84,8 @@
     description = "vageesh";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    # firefox
-    # thunderbird
+    #  firefox
+    #  thunderbird
     ];
   };
 
@@ -123,15 +113,18 @@
     pkgs.gnome.adwaita-icon-theme
     pkgs.gnomeExtensions.appindicator
     pkgs.nixpkgs-fmt
+    pkgs.libreoffice-still
+    pkgs.gnome.gnome-terminal
+    pkgs.gnomeExtensions.custom-accent-colors
+    pkgs.git
   ];
 
-  # removing default gnome softwares
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany
     simple-scan
     seahorse
     gnome-calendar gnome-contacts gnome-software
-  ];
+  ];  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -145,14 +138,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-  services.flatpak.enable = true;
-
-  # garbage collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
