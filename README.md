@@ -7,7 +7,7 @@ This is my setup for nix-os
 To use this config of nixos, run the following commands in your terminal
 
 ```shell
-$ wget -O install.sh https://raw.githubusercontent.com/iamvageesh/nix_config/v0.0.3/install.sh
+$ wget -O install.sh https://raw.githubusercontent.com/iamvageesh/nix_config/main/install.sh
 $ chmod +x install.sh
 $ ./install.sh
 ```
