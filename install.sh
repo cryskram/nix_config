@@ -5,9 +5,10 @@ wget -O configuration.nix https://raw.githubusercontent.com/iamvageesh/nix_confi
 sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.backup
 sudo cp configuration.nix /etc/nixos/configuration.nix
 
-read -p "Do you want to rebuild the system with new configuration[Y/n]: " res
+echo "Do you want to rebuild the system with new configuration[Y/n]: "
+read res
 
-if [[ $res == "y" ||  $res == "Y" ]]
+if [[ "$res" == "y" ||  "$res" == "Y" ]]
 then
   sudo nixos-rebuild switch
 else
