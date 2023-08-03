@@ -7,7 +7,7 @@ sudo cp configuration.nix /etc/nixos/configuration.nix
 
 read -p "Do you want to rebuild the system with new configuration[Y/n]: " res
 
-if [ $res == "y" || $res == "Y" ]
+if [ $res == "y" ] || [ $res == "Y" ]
 then
   sudo nixos-rebuild switch
 else
