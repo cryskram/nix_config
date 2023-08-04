@@ -7,20 +7,13 @@ This is my setup for nix-os
 To use this config of nixos, run the following commands in your terminal
 
 ```shell
-wget -O install.sh https://raw.githubusercontent.com/iamvageesh/nix_config/main/install.sh
+git clone https://github.com/iamvageesh/nix_config.git
+cd nix_config
 chmod +x install.sh
 ./install.sh
 ```
 
-Or you can even do this manually by cloning this repository and then copying the configuration files to the system
-
-```shell
-sudo mv /etc/nixos/configuration.nix /etc/nixos/configuration.nix.backup # taking the backup of your configuration
-git clone https://github.com/iamvageesh/nix_config.git
-cd nix_config
-sudo cp configuration.nix /etc/nixos/
-sudo nixos-rebuild switch
-```
+> Note: The installation script will **only** take the backup of `configuration.nix` file, so if any other configuration files are there, then take their backup manually before running the above scripts
 
 ## Things that this config includes
 
