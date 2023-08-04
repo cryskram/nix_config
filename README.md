@@ -2,6 +2,13 @@
 
 This is my setup for nix-os
 
+## Requirements
+`git` needs to be installed in order to clone this repo :)
+
+```shell
+nix-env -iA git # this installs git without affecting your configuration, thanks to nix
+```
+
 ## Usage
 
 To use this config of nixos, run the following commands in your terminal
