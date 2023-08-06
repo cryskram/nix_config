@@ -35,6 +35,10 @@
 
     # fonts
     powerline-fonts
+
+    # programming stuff
+    nodejs_18
+    python3
   ];
 
 
