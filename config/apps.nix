@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     # some utilities
-    vim wget htop neofetch scrcpy nixpkgs-fmt git exa bat
+    vim wget htop neofetch scrcpy nixpkgs-fmt git exa bat neovim
 
     # applications
     google-chrome
@@ -32,6 +32,9 @@
     gnomeExtensions.blur-my-shell
     gnomeExtensions.clipboard-indicator
     gnomeExtensions.caffeine
+
+    # fonts
+    powerline-fonts
   ];
 
 

@@ -6,5 +6,6 @@
     ./fish.nix
     ./locale.nix
     ./services.nix
+    ./delete.nix
   ];
 }
