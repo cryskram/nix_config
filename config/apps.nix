@@ -35,6 +35,7 @@
 
     # fonts
     powerline-fonts
+    nerdfonts
 
     # programming stuff
     nodejs

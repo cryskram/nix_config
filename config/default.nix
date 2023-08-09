@@ -7,5 +7,6 @@
     ./locale.nix
     ./services.nix
     ./delete.nix
+    ./node_pkgs.nix
   ];
 }
